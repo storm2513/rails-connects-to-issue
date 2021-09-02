@@ -7,16 +7,15 @@ That causes issue if you try to use `Test` model in migration (SQLite and Postgr
 Migration output:
 
 ```
-rails db:migrate
 == 20210902123153 CreateTests: migrating ======================================
 -- create_table(:tests)
-   -> 0.0032s
-== 20210902123153 CreateTests: migrated (0.0062s) =============================
+   -> 0.0144s
+== 20210902123153 CreateTests: migrated (0.0165s) =============================
 
 rails aborted!
 StandardError: An error has occurred, this and all later migrations canceled:
 
-prepare called on a closed database
+connection is closed
 rails-connects-to-issue/bin/rails:5:in `<top (required)>'
 rails-connects-to-issue/bin/spring:10:in `require'
 rails-connects-to-issue/bin/spring:10:in `block in <top (required)>'
@@ -24,7 +23,7 @@ rails-connects-to-issue/bin/spring:7:in `tap'
 rails-connects-to-issue/bin/spring:7:in `<top (required)>'
 
 Caused by:
-ActiveRecord::ConnectionNotEstablished: prepare called on a closed database
+ActiveRecord::ConnectionNotEstablished: connection is closed
 rails-connects-to-issue/bin/rails:5:in `<top (required)>'
 rails-connects-to-issue/bin/spring:10:in `require'
 rails-connects-to-issue/bin/spring:10:in `block in <top (required)>'
@@ -32,7 +31,7 @@ rails-connects-to-issue/bin/spring:7:in `tap'
 rails-connects-to-issue/bin/spring:7:in `<top (required)>'
 
 Caused by:
-ArgumentError: prepare called on a closed database
+PG::ConnectionBad: connection is closed
 rails-connects-to-issue/bin/rails:5:in `<top (required)>'
 rails-connects-to-issue/bin/spring:10:in `require'
 rails-connects-to-issue/bin/spring:10:in `block in <top (required)>'
@@ -40,7 +39,7 @@ rails-connects-to-issue/bin/spring:7:in `tap'
 rails-connects-to-issue/bin/spring:7:in `<top (required)>'
 
 Caused by:
-ActiveRecord::ConnectionNotEstablished: prepare called on a closed database
+ActiveRecord::ConnectionNotEstablished: connection is closed
 rails-connects-to-issue/bin/rails:5:in `<top (required)>'
 rails-connects-to-issue/bin/spring:10:in `require'
 rails-connects-to-issue/bin/spring:10:in `block in <top (required)>'
@@ -48,7 +47,7 @@ rails-connects-to-issue/bin/spring:7:in `tap'
 rails-connects-to-issue/bin/spring:7:in `<top (required)>'
 
 Caused by:
-ArgumentError: prepare called on a closed database
+PG::ConnectionBad: connection is closed
 rails-connects-to-issue/bin/rails:5:in `<top (required)>'
 rails-connects-to-issue/bin/spring:10:in `require'
 rails-connects-to-issue/bin/spring:10:in `block in <top (required)>'
