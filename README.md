@@ -4,7 +4,9 @@ In `master` branch there is an absolutely new rails app.
 I added `Test` model and added `connects_to database: { writing: :primary }` to `ApplicationRecord`.
 That causes issue if you try to use `Test` model in migration (SQLite and PostgreSQL). More likely it's the same issue as described in https://github.com/rails/rails/issues/42873.
 
-Migration output:
+Demo with PostgreSQL is available in `postgresql` branch.
+
+Migration output (SQLite):
 
 ```
 rails db:migrate
